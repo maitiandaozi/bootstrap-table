@@ -1150,7 +1150,11 @@
             });
             $keepOpen.find('input').off('click').on('click', function () {
                 var $this = $(this);
-
+                if($this.attr('checked') =='checked'){
+                    $this.removeAttr('checked');
+                }else{
+                    $this.attr('checked','checked');
+                }
                 that.toggleColumn($(this).val(), $this.prop('checked'), false);
                 that.trigger('column-switch', $(this).data('field'), $this.prop('checked'));
             });
